@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      article {
+        border: 1px solid green;
+        margin-top: 0px;
+      }
+      article p {
+        text-align: justify;
+        /* text-indent: 2em;*/
+      }
+      figure img {
+        margin-top: -50px;
+      }
+      .colcontainer {
+        height: 150px;
+        display: table;
+      }
+      .col {
+        display: table-cell;
+        color: white;
+        vertical-align: middle;
+        padding: 0 10px 0 10px;
+      }
+      .col:nth-child(1n) {
+        background-color: green;
+      }
+      .col:nth-child(2n) {
+        background-color: blue;
+      }
+      .rel {
+        position: relative;
+        left: 200px;
+        top: 50px;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        margin: 0;
+        padding: 0.2em;
+        word-spacing: 30px;
+
+        background-color: cornflowerblue;
+        color: white;
+      }
+      blockquote::before {
+        content: '"';
+        color: red;
+        font-size: larger;
+      }
+      blockquote::after {
+        content: '"';
+        color: red;
+        font-size: larger;
+      }
+      article p::first-line {
+        font-weight: bold;
+      }
+      article p::first-letter {
+        color: red;
+        font-weight: bold;
+        font-size: 2em;
+        float: left;
+        margin-right: 0.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>link1 link2 link3</nav>
+    <article>
+      <h1>Something something</h1>
+      <blockquote>Ah the joys of before and after pseudo elements</blockquote>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+        architecto provident quae, quidem, quis, magni velit voluptates maiores
+        repellat officiis perspiciatis ipsum omnis quas reprehenderit dicta
+        molestias eligendi minima quisquam at incidunt optio aperiam. Ducimus
+        nulla architecto officiis excepturi quia, aliquid debitis error a
+        repellendus! Repellendus dolore voluptatibus perspiciatis maxime rerum
+        natus dolor voluptas culpa dignissimos itaque. Vitae voluptates aliquid
+        doloremque officiis laboriosam nam at exercitationem asperiores debitis,
+        dolor magni quam eum rerum sint eius fuga omnis id, reiciendis odit.
+        Doloribus fugiat dolorem pariatur ipsam consequuntur saepe tenetur id.
+        Odit maxime mollitia deleniti saepe molestias repudiandae molestiae
+        voluptatum distinctio possimus! Lorem ipsum, dolor sit amet consectetur
+        adipisicing elit. Repellat neque dolor officiis! Optio vel numquam est
+        fugiat facere eos, atque quis iure cupiditate minima et quaerat soluta
+        autem, neque non unde quasi magnam doloremque quibusdam, eum repellat.
+        Deleniti, similique. Quaerat explicabo nam aliquam laboriosam similique
+        voluptatem nulla. Nobis, pariatur aspernatur!
+      </p>
+      <figure>
+        <img src="https://picsum.photos/200/300" alt="" />
+        <figcaption>Something</figcaption>
+      </figure>
+      <div class="colcontainer">
+        <div class="col">col1</div>
+        <div class="col">col2</div>
+        <div class="col">col3</div>
+        <div class="col">col4</div>
+      </div>
+      <img class="rel" src="https://picsum.photos/200/300" alt="" />
+    </article>
+  </body>
+</html>
