@@ -1,4 +1,4 @@
- # CSS Notes (randmom and on course "making sense of the border box model" by Morten Rand-Hendriksen on linkedin learning)
+ # CSS Notes (random and on course "making sense of the border box model" by Morten Rand-Hendriksen on linkedin learning)
 
 - Box model layout w/o flex or grid is basically one box on top of the next
 - em unit is typographically the size (w/h) of the uppercase M
@@ -24,6 +24,7 @@
   - fixed: like absolute but positioning is relative to *viewport* (currently visible part of document)
   - sticky (limited browser support): like absolute until it hits edge of viewport, then like fixed
 - Float based layout
+  - used to float content within its current context
   - shouldn't really be used anymore for more than their intended use (image floating or maybe 2 breakable columns for easy mobile friendly layout) unless older browser support (non-flex) is required
   - float: left/right: float adjacent content right / left; makes browser unable to calculate height of containing elements when boxes are floated side by side; defaults to non-floated contents height
   - clear: left / right / both / none: element can't have floated content on specified side (so it breaks as a new block below)
@@ -34,4 +35,21 @@
   - ::before, ::after add content
   - ::first-letter, ::first-line self explanatory (use for drop caps for example)
   - ::selection: allows style of user selected text (needs vendor prefix for firefox)
- 
+- Flex
+  - applied to parent container, affects immediate children (flex items)
+  - for laying out content in one dimension and allowing the container to flex to the dimensions needed by content (unlike float, see problem above)
+  - produces same height (flex-direction: row[-reverse]) / width (flex-direction: row[-reverse]) sized child containers
+  - width (flex-direction:) or height (...) are of variable size depending on content
+  - justify-content: space items along the flex axis; would have loved a flex prefix or better naming for this
+  - align-items: align content of flex items on the cross axis
+-Grid
+  - grid-template-columns: repeat(auto-fill), minmax(minvalue, maxvalue) automatically break rows depending on space
+  - grid-template-areas are awesome and annoying as each has to be names in the css; also easy to misuse and disregard semantically sound html tagging and order
+- all layout types (float, flex, grid) can and should be used together
+- Shapes
+  - box model box can be changes with shape-outside; not all browsers support it yet; worst case: fallback to box
+  - doesn't apply to pseudo elements that don't have their own box like ::first-letter unfortunately it seems
+  - can also have an image for the shape, see https://css-tricks.com/almanac/properties/s/shape-outside/
+  - good visual design support in ff (must first assing points in the css unfortunately)
+  - use with "inset" or "polygon" (shape with devtools) with smaller size to cause text overflow
+- **FIREFOX DEV EDITION DEV TOOLS** are better than anything; note to self: move to ff again, check video playback

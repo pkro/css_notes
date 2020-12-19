@@ -26,10 +26,12 @@
         vertical-align: middle;
         padding: 0 10px 0 10px;
       }
-      .col:nth-child(1n) {
+      .col:nth-child(1n),
+      .griditem:nth-child(1n) {
         background-color: green;
       }
-      .col:nth-child(2n) {
+      .col:nth-child(2n),
+      .griditem:nth-child(2n) {
         background-color: blue;
       }
       .rel {
@@ -37,19 +39,7 @@
         left: 200px;
         top: 50px;
       }
-      nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        display: block;
-        margin: 0;
-        padding: 0.2em;
-        word-spacing: 30px;
 
-        background-color: cornflowerblue;
-        color: white;
-      }
       blockquote::before {
         content: '"';
         color: red;
@@ -63,38 +53,90 @@
       article p::first-line {
         font-weight: bold;
       }
-      article p::first-letter {
+
+      .firstletter {
         color: red;
         font-weight: bold;
-        font-size: 2em;
+        font-size: 7em;
         float: left;
         margin-right: 0.2em;
+        /* shape-outside: circle(); */
+        shape-outside: polygon(5px -28px, 128px 116px, 3px 112px);
+      }
+
+      article p::first-letter {
+        /* this is a pseudo element and not its own block so shape-outside wont work here*/
+      }
+
+      .gridstuff {
+        margin-top: 150px;
+        display: grid;
+        grid-gap: 0.5em;
+        /* grid-template-columns: repeat(2, 1fr); */
+        grid-template-columns: 200px 1fr minmax(20%, 150px);
+        grid-template-rows: ;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        margin: 0;
+        padding: 0.2em;
+        /* word-spacing: 30px; */
+        background-color: cornflowerblue;
+        color: white;
+      }
+      nav ul {
+        width: 100%;
+        display: flex;
+        list-style-type: none;
+        justify-content: space-evenly;
+        align-items: flex-start;
+      }
+      nav a:hover::after {
+        content: attr(href); /* stuff like this gives some possibilities*/
+        cursor: pointer;
+      }
+      nav li {
+        text-align: center;
       }
     </style>
   </head>
   <body>
-    <nav>link1 link2 link3</nav>
+    <nav>
+      <ul>
+        <li><a href="http://pkro.de">link</a></li>
+        <li><a href="http://pkro.de">link</a><br />with description</li>
+        <li><a href="http://pkro.de">link</a></li>
+        <li><a href="http://pkro.de">link</a></li>
+        <li><a href="http://pkro.de">link</a></li>
+      </ul>
+    </nav>
     <article>
       <h1>Something something</h1>
       <blockquote>Ah the joys of before and after pseudo elements</blockquote>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-        architecto provident quae, quidem, quis, magni velit voluptates maiores
-        repellat officiis perspiciatis ipsum omnis quas reprehenderit dicta
-        molestias eligendi minima quisquam at incidunt optio aperiam. Ducimus
-        nulla architecto officiis excepturi quia, aliquid debitis error a
-        repellendus! Repellendus dolore voluptatibus perspiciatis maxime rerum
-        natus dolor voluptas culpa dignissimos itaque. Vitae voluptates aliquid
-        doloremque officiis laboriosam nam at exercitationem asperiores debitis,
-        dolor magni quam eum rerum sint eius fuga omnis id, reiciendis odit.
-        Doloribus fugiat dolorem pariatur ipsam consequuntur saepe tenetur id.
-        Odit maxime mollitia deleniti saepe molestias repudiandae molestiae
-        voluptatum distinctio possimus! Lorem ipsum, dolor sit amet consectetur
-        adipisicing elit. Repellat neque dolor officiis! Optio vel numquam est
-        fugiat facere eos, atque quis iure cupiditate minima et quaerat soluta
-        autem, neque non unde quasi magnam doloremque quibusdam, eum repellat.
-        Deleniti, similique. Quaerat explicabo nam aliquam laboriosam similique
-        voluptatem nulla. Nobis, pariatur aspernatur!
+        <span class="firstletter">L</span>orem ipsum dolor sit amet consectetur
+        adipisicing elit. Beatae architecto provident quae, quidem, quis, magni
+        velit voluptates maiores repellat officiis perspiciatis ipsum omnis quas
+        reprehenderit dicta molestias eligendi minima quisquam at incidunt optio
+        aperiam. Ducimus nulla architecto officiis excepturi quia, aliquid
+        debitis error a repellendus! Repellendus dolore voluptatibus
+        perspiciatis maxime rerum natus dolor voluptas culpa dignissimos itaque.
+        Vitae voluptates aliquid doloremque officiis laboriosam nam at
+        exercitationem asperiores debitis, dolor magni quam eum rerum sint eius
+        fuga omnis id, reiciendis odit. Doloribus fugiat dolorem pariatur ipsam
+        consequuntur saepe tenetur id. Odit maxime mollitia deleniti saepe
+        molestias repudiandae molestiae voluptatum distinctio possimus! Lorem
+        ipsum, dolor sit amet consectetur adipisicing elit. Repellat neque dolor
+        officiis! Optio vel numquam est fugiat facere eos, atque quis iure
+        cupiditate minima et quaerat soluta autem, neque non unde quasi magnam
+        doloremque quibusdam, eum repellat. Deleniti, similique. Quaerat
+        explicabo nam aliquam laboriosam similique voluptatem nulla. Nobis,
+        pariatur aspernatur!
       </p>
       <figure>
         <img src="https://picsum.photos/200/300" alt="" />
@@ -107,6 +149,23 @@
         <div class="col">col4</div>
       </div>
       <img class="rel" src="https://picsum.photos/200/300" alt="" />
+
+      <div class="gridstuff">
+        <div class="griditem">lorem</div>
+        <div class="griditem">lorem</div>
+        <div class="griditem">lorem</div>
+        <div class="griditem">
+          lorem Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem
+          consequuntur in architecto deleniti et repellendus aperiam impedit
+          quibusdam dicta aut?
+        </div>
+        <div class="griditem">lorem</div>
+        <div class="griditem">lorem</div>
+        <div class="griditem">lorem</div>
+        <div class="griditem">lorem</div>
+        <div class="griditem">lorem</div>
+        <div class="griditem">lorem</div>
+      </div>
     </article>
   </body>
 </html>
