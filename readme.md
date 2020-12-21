@@ -53,3 +53,4 @@
   - good visual design support in ff (must first assing points in the css unfortunately)
   - use with "inset" or "polygon" (shape with devtools) with smaller size to cause text overflow
 - **FIREFOX DEV EDITION DEV TOOLS** are better than anything; note to self: move to ff again, check video playback
+- column-count and related properties (with vendor prefixes) is a thing
